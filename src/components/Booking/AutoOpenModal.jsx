@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
-import { Modal, Box, Typography, IconButton } from "@mui/material";
+import {
+  Modal,
+  Box,
+  Typography,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { useTheme } from "@mui/material/styles";
 
 const AutoOpenModal = () => {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Kiểm tra nếu là mobile
 
   useEffect(() => {
     setOpen(true);
@@ -21,12 +30,12 @@ const AutoOpenModal = () => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 600,
+          width: isMobile ? "90%" : 600, // Mobile 90%, Desktop 600px
           bgcolor: "white",
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)", // Mềm mại hơn
-          p: 4,
+          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
+          p: isMobile ? 3 : 4, // Mobile padding nhỏ hơn
           borderRadius: "12px",
-          textAlign: "center", // Căn giữa nội dung
+          textAlign: "center",
           opacity: open ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
         }}
@@ -39,7 +48,7 @@ const AutoOpenModal = () => {
             color: "gray",
             "&:hover": {
               color: "black",
-              transform: "scale(1.1)", // Hiệu ứng phóng to nhẹ
+              transform: "scale(1.1)",
               transition: "0.2s",
             },
           }}
@@ -47,11 +56,24 @@ const AutoOpenModal = () => {
         >
           <CloseIcon />
         </IconButton>
-        <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2 }}>
+        <Typography
+          variant="h5"
+          sx={{
+            fontWeight: "bold",
+            mb: 2,
+            fontSize: isMobile ? "1.2rem" : "1.5rem", // Mobile chữ nhỏ hơn
+          }}
+        >
           CHÀO MỪNG ĐẾN VỚI WEB CỦA HOÀNG
         </Typography>
 
-        <Typography sx={{ textAlign: "left", lineHeight: "1.6" }}>
+        <Typography
+          sx={{
+            textAlign: "left",
+            lineHeight: "1.6",
+            fontSize: isMobile ? "0.9rem" : "1rem", // Mobile nhỏ hơn
+          }}
+        >
           🌍 Mình đã sử dụng những gì trong dự án này :<br />
           - HTML, CSS (Tailwind CSS) <br />
           - JavaScript (ES6+) <br />
