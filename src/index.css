@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  .font-jakarta {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-1480 px-5 mx-auto w-full;
+  }
+
+  .image {
+    @apply block max-w-full object-cover;
+  } 
+
+  .animate-flicker {
+    animation: flicker .8sease-out alternate infinite;
+}
+
+  .bg-gray {
+    --tw-bg-opacity: 1;
+    background-color: rgb(235 235 233 / var(--tw-bg-opacity));
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+@media (max-width: 1024px) {
+  .swiper-container {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .swiper-slide {
+    flex: 0 0 calc(50% - 10px); /* Hiển thị 2 items trên mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-slide {
+    flex: 0 0 100%; /* Hiển thị 1 item trên mobile */
+  }
+}
