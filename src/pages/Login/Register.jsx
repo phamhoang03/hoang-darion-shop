@@ -1,6 +1,6 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ApiLogin from "../../services/Apilogin";
 import toast from "react-hot-toast";
 
@@ -177,15 +177,6 @@ function Register() {
                 >
                   Submit
                 </button>
-                <div className="text-center mt-2">
-                  <span className="text-sm">Bạn chưa có tài khoản?</span>
-                  <Link
-                    to="/register"
-                    className="text-md mt-5 mb-5 block hover:underline hover-text-blue"
-                  >
-                    Đăng ký tại đây
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

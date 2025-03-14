@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BestExperience = () => {
   return (
     <div>
@@ -11,12 +13,12 @@ const BestExperience = () => {
                 Customized Interior <br />
                 Styling
               </h2>
-              <a
-                href="/product"
+              <Link
+                to={`/product`}
                 className="h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
               >
                 View All
-              </a>
+              </Link>
             </div>
 
             <div className="rounded-2xl overflow-hidden mt-6 lg:mt-0">

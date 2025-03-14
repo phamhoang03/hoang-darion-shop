@@ -1,6 +1,7 @@
 import ApiProduct from "../../../services/ApiProduct";
 import BoxProduct from "../../Products/BoxProduct";
 import useFetch from "../../Hooks/useFetch";
+import { Link } from "react-router-dom";
 
 const NewArrivals = () => {
   const { data: dataPtodroductSeller } = useFetch(
@@ -22,12 +23,12 @@ const NewArrivals = () => {
                 Experience the best products at our store!
               </p>
             </div>
-            <a
-              href="/product"
+            <Link
+              to={`/product`}
               className="mt-6 lg:mt-0 h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
             >
               View All
-            </a>
+            </Link>
           </div>
           <ul className="mt-8 lg:grid grid-cols-4 gap-7">
             {dataPtodroductSeller &&
